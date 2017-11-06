@@ -41,8 +41,8 @@ test_cases = [ # test case = (old html, new html, inline changes, edit script)
         '<h1>one</h1><h2>two</h2>',
         '<h1>one</h1><ins><h2>two</h2></ins>',
         [
-            ('insert', [1], {'node_type': Node.ELEMENT_NODE, 'node_name': u'h2'}),
-            ('insert', [1, 0], {'node_type': Node.TEXT_NODE, 'node_value': u'two'}),
+            ('insert', [1], {'node_type': Node.ELEMENT_NODE, 'node_name': 'h2'}),
+            ('insert', [1, 0], {'node_type': Node.TEXT_NODE, 'node_value': 'two'}),
         ]
     ),
     (
@@ -51,7 +51,7 @@ test_cases = [ # test case = (old html, new html, inline changes, edit script)
         '<div></div>',
         '<ins><div></div></ins>',
         [
-            ('insert', [0], {'node_type': Node.ELEMENT_NODE, 'node_name': u'div'}),
+            ('insert', [0], {'node_type': Node.ELEMENT_NODE, 'node_name': 'div'}),
         ]
     ),
     (
@@ -60,7 +60,7 @@ test_cases = [ # test case = (old html, new html, inline changes, edit script)
         '<div/>',
         '<ins><div/></ins>',
         [
-            ('insert', [0], {'node_type': Node.ELEMENT_NODE, 'node_name': u'div'}),
+            ('insert', [0], {'node_type': Node.ELEMENT_NODE, 'node_name': 'div'}),
         ]
     ),
     (
@@ -69,7 +69,7 @@ test_cases = [ # test case = (old html, new html, inline changes, edit script)
         '<div></div>\n',
         '<ins><div></div></ins>\n',
         [
-            ('insert', [0], {'node_type': Node.ELEMENT_NODE, 'node_name': u'div'}),
+            ('insert', [0], {'node_type': Node.ELEMENT_NODE, 'node_name': 'div'}),
         ]
     ),
     (
@@ -78,7 +78,7 @@ test_cases = [ # test case = (old html, new html, inline changes, edit script)
         '<div></div>\r\n',
         '<ins><div></div></ins>\r\n',
         [
-            ('insert', [0], {'node_type': Node.ELEMENT_NODE, 'node_name': u'div'}),
+            ('insert', [0], {'node_type': Node.ELEMENT_NODE, 'node_name': 'div'}),
         ]
     ),
     (
@@ -89,9 +89,9 @@ test_cases = [ # test case = (old html, new html, inline changes, edit script)
     ),
     (
         'space after empty tag',
-        u'',
-        u'<ol><li><span></span> </li></ol>',
-        u'<ins><ol><li><span></span> </li></ol></ins>',
+        '',
+        '<ol><li><span></span> </li></ol>',
+        '<ins><ol><li><span></span> </li></ol></ins>',
     ),
     (
         'simple insert with tail text',
@@ -99,8 +99,8 @@ test_cases = [ # test case = (old html, new html, inline changes, edit script)
         '<div><h1>one</h1>tail</div>',
         '<div><ins><h1>one</h1></ins>tail</div>',
         [
-            ('insert', [0, 0], {'node_type': Node.ELEMENT_NODE, 'node_name': u'h1'}),
-            ('insert', [0, 0, 0], {'node_type': Node.TEXT_NODE, 'node_value': u'one'}),
+            ('insert', [0, 0], {'node_type': Node.ELEMENT_NODE, 'node_name': 'h1'}),
+            ('insert', [0, 0, 0], {'node_type': Node.TEXT_NODE, 'node_value': 'one'}),
         ]
     ),
     (
@@ -109,8 +109,8 @@ test_cases = [ # test case = (old html, new html, inline changes, edit script)
         '<h1>one</h1><h2>two</h2>tail',
         '<h1>one</h1><ins><h2>two</h2></ins>tail',
         [
-            ('insert', [1], {'node_type': Node.ELEMENT_NODE, 'node_name': u'h2'}),
-            ('insert', [1, 0], {'node_type': Node.TEXT_NODE, 'node_value': u'two'}),
+            ('insert', [1], {'node_type': Node.ELEMENT_NODE, 'node_name': 'h2'}),
+            ('insert', [1, 0], {'node_type': Node.TEXT_NODE, 'node_value': 'two'}),
         ]
     ),
     (
@@ -119,8 +119,8 @@ test_cases = [ # test case = (old html, new html, inline changes, edit script)
         '<h2>two</h2><h1>one</h1>',
         '<ins><h2>two</h2></ins><h1>one</h1>',
         [
-            ('insert', [0], {'node_type': Node.ELEMENT_NODE, 'node_name': u'h2'}),
-            ('insert', [0, 0], {'node_type': Node.TEXT_NODE, 'node_value': u'two'}),
+            ('insert', [0], {'node_type': Node.ELEMENT_NODE, 'node_name': 'h2'}),
+            ('insert', [0, 0], {'node_type': Node.TEXT_NODE, 'node_value': 'two'}),
         ]
     ),
     (
@@ -129,10 +129,10 @@ test_cases = [ # test case = (old html, new html, inline changes, edit script)
         '<h2>two</h2>',
         '<del><h1>one</h1></del><ins><h2>two</h2></ins>',
         [
-            ('delete', [0, 0], {'node_type': Node.TEXT_NODE, 'node_value': u'one'}),
-            ('delete', [0], {'node_type': Node.ELEMENT_NODE, 'node_name': u'h1'}),
-            ('insert', [0], {'node_type': Node.ELEMENT_NODE, 'node_name': u'h2'}),
-            ('insert', [0, 0], {'node_type': Node.TEXT_NODE, 'node_value': u'two'}),
+            ('delete', [0, 0], {'node_type': Node.TEXT_NODE, 'node_value': 'one'}),
+            ('delete', [0], {'node_type': Node.ELEMENT_NODE, 'node_name': 'h1'}),
+            ('insert', [0], {'node_type': Node.ELEMENT_NODE, 'node_name': 'h2'}),
+            ('insert', [0, 0], {'node_type': Node.TEXT_NODE, 'node_value': 'two'}),
         ]
     ),
     (
@@ -141,10 +141,10 @@ test_cases = [ # test case = (old html, new html, inline changes, edit script)
         '<h2>two</h2><h3>three</h3>',
         '<del><h1>one</h1></del><h2>two</h2><ins><h3>three</h3></ins>',
         [
-            ('delete', [0, 0], {'node_type': Node.TEXT_NODE, 'node_value': u'one'}),
-            ('delete', [0], {'node_type': Node.ELEMENT_NODE, 'node_name': u'h1'}),
-            ('insert', [1], {'node_type': Node.ELEMENT_NODE, 'node_name': u'h3'}),
-            ('insert', [1, 0], {'node_type': Node.TEXT_NODE, 'node_value': u'three'}),
+            ('delete', [0, 0], {'node_type': Node.TEXT_NODE, 'node_value': 'one'}),
+            ('delete', [0], {'node_type': Node.ELEMENT_NODE, 'node_name': 'h1'}),
+            ('insert', [1], {'node_type': Node.ELEMENT_NODE, 'node_name': 'h3'}),
+            ('insert', [1, 0], {'node_type': Node.TEXT_NODE, 'node_value': 'three'}),
         ]
     ),
     (
@@ -153,10 +153,10 @@ test_cases = [ # test case = (old html, new html, inline changes, edit script)
         '<h2>two</h2>tail',
         '<del><h1>one</h1></del><ins><h2>two</h2></ins>tail',
         [
-            ('delete', [0, 0], {'node_type': Node.TEXT_NODE, 'node_value': u'one'}),
-            ('delete', [0], {'node_type': Node.ELEMENT_NODE, 'node_name': u'h1'}),
-            ('insert', [0], {'node_type': Node.ELEMENT_NODE, 'node_name': u'h2'}),
-            ('insert', [0, 0], {'node_type': Node.TEXT_NODE, 'node_value': u'two'}),
+            ('delete', [0, 0], {'node_type': Node.TEXT_NODE, 'node_value': 'one'}),
+            ('delete', [0], {'node_type': Node.ELEMENT_NODE, 'node_name': 'h1'}),
+            ('insert', [0], {'node_type': Node.ELEMENT_NODE, 'node_name': 'h2'}),
+            ('insert', [0, 0], {'node_type': Node.TEXT_NODE, 'node_value': 'two'}),
         ]
     ),
     (
@@ -165,10 +165,10 @@ test_cases = [ # test case = (old html, new html, inline changes, edit script)
         '<h1>one</h1><h2>two</h2><h3>three</h3>',
         '<ins><h1>one</h1><h2>two</h2></ins><h3>three</h3>',
         [
-            ('insert', [0], {'node_type': Node.ELEMENT_NODE, 'node_name': u'h1'}),
-            ('insert', [0, 0], {'node_type': Node.TEXT_NODE, 'node_value': u'one'}),
-            ('insert', [1], {'node_type': Node.ELEMENT_NODE, 'node_name': u'h2'}),
-            ('insert', [1, 0], {'node_type': Node.TEXT_NODE, 'node_value': u'two'}),
+            ('insert', [0], {'node_type': Node.ELEMENT_NODE, 'node_name': 'h1'}),
+            ('insert', [0, 0], {'node_type': Node.TEXT_NODE, 'node_value': 'one'}),
+            ('insert', [1], {'node_type': Node.ELEMENT_NODE, 'node_name': 'h2'}),
+            ('insert', [1, 0], {'node_type': Node.TEXT_NODE, 'node_value': 'two'}),
         ]
     ),
     (
@@ -177,14 +177,14 @@ test_cases = [ # test case = (old html, new html, inline changes, edit script)
         '<h3>three</h3><h4>four</h4>',
         '<del><h1>one</h1><h2>two</h2></del><ins><h3>three</h3><h4>four</h4></ins>',
         [
-            ('delete', [1, 0], {'node_type': Node.TEXT_NODE, 'node_value': u'two'}),
-            ('delete', [1], {'node_type': Node.ELEMENT_NODE, 'node_name': u'h2'}),
-            ('delete', [0, 0], {'node_type': Node.TEXT_NODE, 'node_value': u'one'}),
-            ('delete', [0], {'node_type': Node.ELEMENT_NODE, 'node_name': u'h1'}),
-            ('insert', [0], {'node_type': Node.ELEMENT_NODE, 'node_name': u'h3'}),
-            ('insert', [0, 0], {'node_type': Node.TEXT_NODE, 'node_value': u'three'}),
-            ('insert', [1], {'node_type': Node.ELEMENT_NODE, 'node_name': u'h4'}),
-            ('insert', [1, 0], {'node_type': Node.TEXT_NODE, 'node_value': u'four'}),
+            ('delete', [1, 0], {'node_type': Node.TEXT_NODE, 'node_value': 'two'}),
+            ('delete', [1], {'node_type': Node.ELEMENT_NODE, 'node_name': 'h2'}),
+            ('delete', [0, 0], {'node_type': Node.TEXT_NODE, 'node_value': 'one'}),
+            ('delete', [0], {'node_type': Node.ELEMENT_NODE, 'node_name': 'h1'}),
+            ('insert', [0], {'node_type': Node.ELEMENT_NODE, 'node_name': 'h3'}),
+            ('insert', [0, 0], {'node_type': Node.TEXT_NODE, 'node_value': 'three'}),
+            ('insert', [1], {'node_type': Node.ELEMENT_NODE, 'node_name': 'h4'}),
+            ('insert', [1, 0], {'node_type': Node.TEXT_NODE, 'node_value': 'four'}),
         ]
     ),
     (
@@ -193,14 +193,14 @@ test_cases = [ # test case = (old html, new html, inline changes, edit script)
         '<div>before<h3>three</h3><h4>four</h4>after</div>',
         '<div>before<del><h1>one</h1><h2>two</h2></del><ins><h3>three</h3><h4>four</h4></ins>after</div>',
         [
-            ('delete', [0, 2, 0], {'node_type': Node.TEXT_NODE, 'node_value': u'two'}),
-            ('delete', [0, 2], {'node_type': Node.ELEMENT_NODE, 'node_name': u'h2'}),
-            ('delete', [0, 1, 0], {'node_type': Node.TEXT_NODE, 'node_value': u'one'}),
-            ('delete', [0, 1], {'node_type': Node.ELEMENT_NODE, 'node_name': u'h1'}),
-            ('insert', [0, 1], {'node_type': Node.ELEMENT_NODE, 'node_name': u'h3'}),
-            ('insert', [0, 1, 0], {'node_type': Node.TEXT_NODE, 'node_value': u'three'}),
-            ('insert', [0, 2], {'node_type': Node.ELEMENT_NODE, 'node_name': u'h4'}),
-            ('insert', [0, 2, 0], {'node_type': Node.TEXT_NODE, 'node_value': u'four'}),
+            ('delete', [0, 2, 0], {'node_type': Node.TEXT_NODE, 'node_value': 'two'}),
+            ('delete', [0, 2], {'node_type': Node.ELEMENT_NODE, 'node_name': 'h2'}),
+            ('delete', [0, 1, 0], {'node_type': Node.TEXT_NODE, 'node_value': 'one'}),
+            ('delete', [0, 1], {'node_type': Node.ELEMENT_NODE, 'node_name': 'h1'}),
+            ('insert', [0, 1], {'node_type': Node.ELEMENT_NODE, 'node_name': 'h3'}),
+            ('insert', [0, 1, 0], {'node_type': Node.TEXT_NODE, 'node_value': 'three'}),
+            ('insert', [0, 2], {'node_type': Node.ELEMENT_NODE, 'node_name': 'h4'}),
+            ('insert', [0, 2, 0], {'node_type': Node.TEXT_NODE, 'node_value': 'four'}),
         ]
     ),
     (
@@ -209,14 +209,14 @@ test_cases = [ # test case = (old html, new html, inline changes, edit script)
         '<h3>three</h3>filler<h4>four</h4>',
         '<del><h1>one</h1></del><ins><h3>three</h3></ins>filler<del><h2>two</h2></del><ins><h4>four</h4></ins>',
         [
-            ('delete', [0, 0], {'node_type': Node.TEXT_NODE, 'node_value': u'one'}),
-            ('delete', [0], {'node_type': Node.ELEMENT_NODE, 'node_name': u'h1'}),
-            ('insert', [0], {'node_type': Node.ELEMENT_NODE, 'node_name': u'h3'}),
-            ('insert', [0, 0], {'node_type': Node.TEXT_NODE, 'node_value': u'three'}),
-            ('delete', [2, 0], {'node_type': Node.TEXT_NODE, 'node_value': u'two'}),
-            ('delete', [2], {'node_type': Node.ELEMENT_NODE, 'node_name': u'h2'}),
-            ('insert', [2], {'node_type': Node.ELEMENT_NODE, 'node_name': u'h4'}),
-            ('insert', [2, 0], {'node_type': Node.TEXT_NODE, 'node_value': u'four'}),
+            ('delete', [0, 0], {'node_type': Node.TEXT_NODE, 'node_value': 'one'}),
+            ('delete', [0], {'node_type': Node.ELEMENT_NODE, 'node_name': 'h1'}),
+            ('insert', [0], {'node_type': Node.ELEMENT_NODE, 'node_name': 'h3'}),
+            ('insert', [0, 0], {'node_type': Node.TEXT_NODE, 'node_value': 'three'}),
+            ('delete', [2, 0], {'node_type': Node.TEXT_NODE, 'node_value': 'two'}),
+            ('delete', [2], {'node_type': Node.ELEMENT_NODE, 'node_name': 'h2'}),
+            ('insert', [2], {'node_type': Node.ELEMENT_NODE, 'node_name': 'h4'}),
+            ('insert', [2, 0], {'node_type': Node.TEXT_NODE, 'node_value': 'four'}),
         ]
     ),
     (
@@ -225,9 +225,9 @@ test_cases = [ # test case = (old html, new html, inline changes, edit script)
         '<h2><em>xxx</em></h2><h1><em>xxx</em></h1>',
         '<ins><h2><em>xxx</em></h2></ins><h1><em>xxx</em></h1>',
         [
-            ('insert', [0], {'node_type': Node.ELEMENT_NODE, 'node_name': u'h2'}),
-            ('insert', [0, 0], {'node_type': Node.ELEMENT_NODE, 'node_name': u'em'}),
-            ('insert', [0, 0, 0], {'node_type': Node.TEXT_NODE, 'node_value': u'xxx'}),
+            ('insert', [0], {'node_type': Node.ELEMENT_NODE, 'node_name': 'h2'}),
+            ('insert', [0, 0], {'node_type': Node.ELEMENT_NODE, 'node_name': 'em'}),
+            ('insert', [0, 0, 0], {'node_type': Node.TEXT_NODE, 'node_value': 'xxx'}),
         ]
     ),
     (
@@ -236,8 +236,8 @@ test_cases = [ # test case = (old html, new html, inline changes, edit script)
         '<div><h1>one</h1><h2>two</h2></div>',
         '<div><h1>one</h1><ins><h2>two</h2></ins></div>',
         [
-            ('insert', [0, 1], {'node_type': Node.ELEMENT_NODE, 'node_name': u'h2'}),
-            ('insert', [0, 1, 0], {'node_type': Node.TEXT_NODE, 'node_value': u'two'}),
+            ('insert', [0, 1], {'node_type': Node.ELEMENT_NODE, 'node_name': 'h2'}),
+            ('insert', [0, 1, 0], {'node_type': Node.TEXT_NODE, 'node_value': 'two'}),
         ]
     ),
     (
@@ -246,7 +246,7 @@ test_cases = [ # test case = (old html, new html, inline changes, edit script)
         '<h1>one</h1>test<h2>two</h2>',
         '<h1>one</h1><ins>test</ins><h2>two</h2>',
         [
-            ('insert', [1], {'node_type': Node.TEXT_NODE, 'node_value': u'test'}),
+            ('insert', [1], {'node_type': Node.TEXT_NODE, 'node_value': 'test'}),
         ]
     ),
     (
@@ -255,8 +255,8 @@ test_cases = [ # test case = (old html, new html, inline changes, edit script)
         '<h1>... new ...</h1>',
         '<h1>... <del>old</del><ins>new</ins> ...</h1>',
         [
-            ('delete', [0, 4], {'node_type': Node.TEXT_NODE, 'node_value': u'old'}),
-            ('insert', [0, 4], {'node_type': Node.TEXT_NODE, 'node_value': u'new'}),
+            ('delete', [0, 4], {'node_type': Node.TEXT_NODE, 'node_value': 'old'}),
+            ('insert', [0, 4], {'node_type': Node.TEXT_NODE, 'node_value': 'new'}),
         ]
     ),
     (
@@ -265,10 +265,10 @@ test_cases = [ # test case = (old html, new html, inline changes, edit script)
         '<h1>new</h1>',
         '<del><h1>old</h1></del><ins><h1>new</h1></ins>',
         [
-            ('delete', [0, 0], {'node_type': Node.TEXT_NODE, 'node_value': u'old'}),
-            ('delete', [0], {'node_type': Node.ELEMENT_NODE, 'node_name': u'h1'}),
-            ('insert', [0], {'node_type': Node.ELEMENT_NODE, 'node_name': u'h1'}),
-            ('insert', [0, 0], {'node_type': Node.TEXT_NODE, 'node_value': u'new'}),
+            ('delete', [0, 0], {'node_type': Node.TEXT_NODE, 'node_value': 'old'}),
+            ('delete', [0], {'node_type': Node.ELEMENT_NODE, 'node_name': 'h1'}),
+            ('insert', [0], {'node_type': Node.ELEMENT_NODE, 'node_name': 'h1'}),
+            ('insert', [0, 0], {'node_type': Node.TEXT_NODE, 'node_value': 'new'}),
         ]
     ),
     (
@@ -277,8 +277,8 @@ test_cases = [ # test case = (old html, new html, inline changes, edit script)
         '<h1>red blue</h1>',
         '<h1><ins>red </ins>blue</h1>',
         [
-            ('insert', [0, 0], {'node_type': Node.TEXT_NODE, 'node_value': u'red'}),
-            ('insert', [0, 1], {'node_type': Node.TEXT_NODE, 'node_value': u' '}),
+            ('insert', [0, 0], {'node_type': Node.TEXT_NODE, 'node_value': 'red'}),
+            ('insert', [0, 1], {'node_type': Node.TEXT_NODE, 'node_value': ' '}),
         ]
     ),
     (
@@ -287,8 +287,8 @@ test_cases = [ # test case = (old html, new html, inline changes, edit script)
         '<h1>red green blue</h1>',
         '<h1>red <ins>green </ins>blue</h1>',
         [
-            ('insert', [0, 2], {'node_type': Node.TEXT_NODE, 'node_value': u'green'}),
-            ('insert', [0, 3], {'node_type': Node.TEXT_NODE, 'node_value': u' '}),
+            ('insert', [0, 2], {'node_type': Node.TEXT_NODE, 'node_value': 'green'}),
+            ('insert', [0, 3], {'node_type': Node.TEXT_NODE, 'node_value': ' '}),
         ]
     ),
     (
@@ -297,10 +297,10 @@ test_cases = [ # test case = (old html, new html, inline changes, edit script)
         '<h1>test alot of stuff</h1>',
         '<h1>test <del>some</del><ins>alot of</ins> stuff</h1>',
         [
-            ('delete', [0, 2], {'node_type': Node.TEXT_NODE, 'node_value': u'some'}),
-            ('insert', [0, 2], {'node_type': Node.TEXT_NODE, 'node_value': u'alot'}),
-            ('insert', [0, 3], {'node_type': Node.TEXT_NODE, 'node_value': u' '}),
-            ('insert', [0, 4], {'node_type': Node.TEXT_NODE, 'node_value': u'of'}),
+            ('delete', [0, 2], {'node_type': Node.TEXT_NODE, 'node_value': 'some'}),
+            ('insert', [0, 2], {'node_type': Node.TEXT_NODE, 'node_value': 'alot'}),
+            ('insert', [0, 3], {'node_type': Node.TEXT_NODE, 'node_value': ' '}),
+            ('insert', [0, 4], {'node_type': Node.TEXT_NODE, 'node_value': 'of'}),
         ]
     ),
     (
@@ -309,8 +309,8 @@ test_cases = [ # test case = (old html, new html, inline changes, edit script)
         '<h1>test</h1> tail',
         '<h1>test</h1><ins> tail</ins>',
         [
-            ('insert', [1], {'node_type': Node.TEXT_NODE, 'node_value': u' '}),
-            ('insert', [2], {'node_type': Node.TEXT_NODE, 'node_value': u'tail'}),
+            ('insert', [1], {'node_type': Node.TEXT_NODE, 'node_value': ' '}),
+            ('insert', [2], {'node_type': Node.TEXT_NODE, 'node_value': 'tail'}),
         ]
     ),
     (
@@ -319,8 +319,8 @@ test_cases = [ # test case = (old html, new html, inline changes, edit script)
         '<h1>test</h1>banana',
         '<h1>test</h1><del>apple</del><ins>banana</ins>',
         [
-            ('delete', [1], {'node_type': Node.TEXT_NODE, 'node_value': u'apple'}),
-            ('insert', [1], {'node_type': Node.TEXT_NODE, 'node_value': u'banana'}),
+            ('delete', [1], {'node_type': Node.TEXT_NODE, 'node_value': 'apple'}),
+            ('insert', [1], {'node_type': Node.TEXT_NODE, 'node_value': 'banana'}),
         ]
     ),
     (
@@ -329,7 +329,7 @@ test_cases = [ # test case = (old html, new html, inline changes, edit script)
         '<h1>one</h1>filler<h2>two</h2>',
         '<h1>one</h1><ins>filler</ins><h2>two</h2>',
         [
-            ('insert', [1], {'node_type': Node.TEXT_NODE, 'node_value': u'filler'}),
+            ('insert', [1], {'node_type': Node.TEXT_NODE, 'node_value': 'filler'}),
         ]
     ),
     (
@@ -338,10 +338,10 @@ test_cases = [ # test case = (old html, new html, inline changes, edit script)
         '<h2>test</h2>',
         '<del><h1>test</h1></del><ins><h2>test</h2></ins>',
         [
-            ('delete', [0, 0], {'node_type': Node.TEXT_NODE, 'node_value': u'test'}),
-            ('delete', [0], {'node_type': Node.ELEMENT_NODE, 'node_name': u'h1'}),
-            ('insert', [0], {'node_type': Node.ELEMENT_NODE, 'node_name': u'h2'}),
-            ('insert', [0, 0], {'node_type': Node.TEXT_NODE, 'node_value': u'test'}),
+            ('delete', [0, 0], {'node_type': Node.TEXT_NODE, 'node_value': 'test'}),
+            ('delete', [0], {'node_type': Node.ELEMENT_NODE, 'node_name': 'h1'}),
+            ('insert', [0], {'node_type': Node.ELEMENT_NODE, 'node_name': 'h2'}),
+            ('insert', [0, 0], {'node_type': Node.TEXT_NODE, 'node_value': 'test'}),
         ]
     ),
     (
@@ -350,8 +350,8 @@ test_cases = [ # test case = (old html, new html, inline changes, edit script)
         '<h2>test</h2><h1>test</h1>',
         '<ins><h2>test</h2></ins><h1>test</h1>',
         [
-            ('insert', [0], {'node_type': Node.ELEMENT_NODE, 'node_name': u'h2'}),
-            ('insert', [0, 0], {'node_type': Node.TEXT_NODE, 'node_value': u'test'}),
+            ('insert', [0], {'node_type': Node.ELEMENT_NODE, 'node_name': 'h2'}),
+            ('insert', [0, 0], {'node_type': Node.TEXT_NODE, 'node_value': 'test'}),
         ]
     ),
     (
@@ -440,12 +440,12 @@ test_cases = [ # test case = (old html, new html, inline changes, edit script)
     ),
     (
         'unicode text',
-        u'<h1>uber ......</h1>',
-        u'<h1>über ......</h1>',
-        u'<h1><del>uber</del><ins>über</ins> ......</h1>',
+        '<h1>uber ......</h1>',
+        '<h1>über ......</h1>',
+        '<h1><del>uber</del><ins>über</ins> ......</h1>',
         [
-            ('delete', [0, 0], {'node_type': Node.TEXT_NODE, 'node_value': u'uber'}),
-            ('insert', [0, 0], {'node_type': Node.TEXT_NODE, 'node_value': u'über'}),
+            ('delete', [0, 0], {'node_type': Node.TEXT_NODE, 'node_value': 'uber'}),
+            ('insert', [0, 0], {'node_type': Node.TEXT_NODE, 'node_value': 'über'}),
         ]
     ),
     (
@@ -466,11 +466,11 @@ test_cases = [ # test case = (old html, new html, inline changes, edit script)
         '<h1>xxx</h1><p>yyy ...</p>',
         '<ins><h1>xxx</h1></ins><p><del><em>zzz</em></del><ins>yyy</ins> ...</p>',
         [
-            ('insert', [0], {'node_type': Node.ELEMENT_NODE, 'node_name': u'h1'}),
-            ('insert', [0, 0], {'node_type': Node.TEXT_NODE, 'node_value': u'xxx'}),
-            ('delete', [1, 0, 0], {'node_value': u'zzz', 'node_type': 3}),
-            ('delete', [1, 0], {'node_type': Node.ELEMENT_NODE, 'node_name': u'em'}),
-            ('insert', [1, 0], {'node_type': Node.TEXT_NODE, 'node_value': u'yyy'}),
+            ('insert', [0], {'node_type': Node.ELEMENT_NODE, 'node_name': 'h1'}),
+            ('insert', [0, 0], {'node_type': Node.TEXT_NODE, 'node_value': 'xxx'}),
+            ('delete', [1, 0, 0], {'node_value': 'zzz', 'node_type': 3}),
+            ('delete', [1, 0], {'node_type': Node.ELEMENT_NODE, 'node_name': 'em'}),
+            ('insert', [1, 0], {'node_type': Node.TEXT_NODE, 'node_value': 'yyy'}),
         ]
     ),
     (
@@ -505,8 +505,8 @@ test_cases = [ # test case = (old html, new html, inline changes, edit script)
         [
             ('insert', [0], {
                 'node_type': Node.ELEMENT_NODE,
-                'node_name': u'img',
-                'attributes': {u'src': u'image.gif'},
+                'node_name': 'img',
+                'attributes': {'src': 'image.gif'},
             }),
         ]
     ),
@@ -731,11 +731,11 @@ all_test_cases = (test_cases +
 
 def assert_html_equal(a_html, b_html):
     assert html_equal(a_html, b_html), (
-        u'These html documents are not equal:\n%r\n====\n%r' % (a_html, b_html))
+        'These html documents are not equal:\n%r\n====\n%r' % (a_html, b_html))
 
 def assert_html_not_equal(a_html, b_html):
     assert not html_equal(a_html, b_html), (
-        u'These html documents should not be equal:\n%r\n====\n%r' % (a_html, b_html))
+        'These html documents should not be equal:\n%r\n====\n%r' % (a_html, b_html))
 
 def assert_strip_changes(old_html, new_html, changes):
     assert_html_equal(old_html, strip_changes_old(changes))
@@ -812,8 +812,8 @@ def test_remove_attributes():
          '<h1>one</h1>'),
         ('<div>before <h1 id="test-heading" class="test">one</h1> after </div>',
          '<div>before <h1>one</h1> after </div>'),
-        (u'<h1 class="test">über</h1>',
-         u'<h1>über</h1>'),
+        ('<h1 class="test">über</h1>',
+         '<h1>über</h1>'),
     ]
     for html, stripped_html, in remove_attributes_cases:
         assert_html_equal(remove_attributes(html), stripped_html)

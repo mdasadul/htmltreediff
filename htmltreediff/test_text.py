@@ -31,10 +31,10 @@ def test_text_split():
          ['dial', ' ', '1-800-555-1234']),
         ('Effective 1/2/2003',
          ['Effective', ' ', '1/2/2003']),
-        (u'über français',
-         [u'über', u' ', u'français']),
-        (u'em dashes \u2013  \u2013',
-         [u'em', u' ', u'dashes', u' ', u'\u2013', u'  ', u'\u2013']),
+        ('über français',
+         ['über', ' ', 'français']),
+        ('em dashes \u2013  \u2013',
+         ['em', ' ', 'dashes', ' ', '\u2013', '  ', '\u2013']),
     ]
     for text, target in cases:
         def test():

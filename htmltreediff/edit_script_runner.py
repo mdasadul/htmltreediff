@@ -28,7 +28,7 @@ class EditScriptRunner(object):
         if node_type == Node.ELEMENT_NODE:
             node = self.dom.createElement(node_name)
             if attributes:
-                for key, value in attributes.items():
+                for key, value in list(attributes.items()):
                     node.setAttribute(key, value)
         elif node_type == Node.TEXT_NODE:
             node = self.dom.createTextNode(node_value)

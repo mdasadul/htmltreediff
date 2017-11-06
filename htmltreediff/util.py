@@ -146,7 +146,7 @@ class HashableNode(object):
         return not self.__eq__(other)
 
     def __hash__(self):
-        attributes = frozenset(attribute_dict(self.node).items())
+        attributes = frozenset(list(attribute_dict(self.node).items()))
         return hash((self.node.nodeType,
                      self.node.nodeName,
                      self.node.nodeValue,
@@ -207,10 +207,10 @@ def attribute_dict(node):
 
 def normalize_entities(html):
     # turn &nbsp; and aliases into normal spaces
-    html = html.replace(u'&nbsp;', u' ')
-    html = html.replace(u'&#160;', u' ')
-    html = html.replace(u'&#xA0;', u' ')
-    html = html.replace(u'\xa0', u' ')
+    html = html.replace('&nbsp;', ' ')
+    html = html.replace('&#160;', ' ')
+    html = html.replace('&#xA0;', ' ')
+    html = html.replace('\xa0', ' ')
     return html
 
 def remove_xml_declaration(xml):
@@ -219,7 +219,7 @@ def remove_xml_declaration(xml):
 
 def remove_dom_attributes(dom):
     for node in walk_dom(dom):
-        for key in attribute_dict(node).keys():
+        for key in list(attribute_dict(node).keys()):
             node.attributes.removeNamedItem(key)
 
 _non_text_node_tags = [
@@ -325,10 +325,11 @@ def tree_text(node):
 
 # manipulation #
 def copy_dom(dom):
-    new_dom = minidom.Document()
-    doc = new_dom.importNode(dom.documentElement, deep=True)
-    new_dom.documentElement = doc
-    return new_dom
+    return dom.cloneNode(deep=True)
+    #new_dom = minidom.Document()
+    #doc = new_dom.importNode(dom.documentElement, deep=True)
+    #new_dom.documentElement = doc
+    #return new_dom
 
 def remove_node(node):
     """

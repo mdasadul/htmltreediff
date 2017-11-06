@@ -43,7 +43,7 @@ def multi_split(text, regexes):
     'one234five| |678'
     """
     def make_regex(s):
-        return re.compile(s) if isinstance(s, basestring) else s
+        return re.compile(s) if isinstance(s, str) else s
     regexes = [make_regex(r) for r in regexes]
 
     # Run the list of pieces through the regex split, splitting it into more

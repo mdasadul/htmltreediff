@@ -234,7 +234,7 @@ def get_opcodes(matching_blocks):
     return sm.get_opcodes()
 
 def _is_junk(hashable_node):
-    if isinstance(hashable_node, basestring):
+    if isinstance(hashable_node, str):
         return is_text_junk(hashable_node)
     # Nodes with no text or just whitespace are junk.
     for descendant in walk_dom(hashable_node.node):

@@ -160,7 +160,7 @@ def test_html_diff_pretty():
     for test_name, old_html, new_html, pretty_changes in cases:
         def test():
             changes = diff(old_html, new_html, cutoff=0.0, pretty=True)
-            assert_equal(pretty_changes, changes)
+            assert_html_equal(pretty_changes, changes)
         test.description = 'test_html_diff_pretty - %s' % test_name
         yield test
 
